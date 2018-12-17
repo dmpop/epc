@@ -10,12 +10,12 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
     echo '<link href="favicon.png" rel="icon" type="image/png" />';
     echo '<link rel="stylesheet" type="text/css" href="styles.css">';
     echo '<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type=text/css"">';
+    echo '<title>Everyday Photo Carry</title>';
     echo '</head>';
     echo '<body>';
-    echo '<table border="0">';
-    echo '<title>Everyday Photo Carry</title>';
     echo '<div id="content">';
     echo '<h1>Everyday Photo Carry</h1>';
+    echo '<table border="0">';
     
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
         $num = count($data);
