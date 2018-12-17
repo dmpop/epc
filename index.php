@@ -7,6 +7,7 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
     echo '<head>';
     echo '<meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<link href="favicon.png" rel="icon" type="image/png" />';
     echo '<link rel="stylesheet" type="text/css" href="styles.css">';
     echo '<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type=text/css"">';
     echo '</head>';
@@ -25,7 +26,6 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
         }
 	
         for ($c=0; $c < $num; $c++) {
-            //echo $data[$c] . "<br />\n";
             if(empty($data[$c])) {
 		$value = "&nbsp;";
             }else{
