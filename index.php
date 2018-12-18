@@ -1,23 +1,61 @@
 <?php
 
+// Author: Dmitri Popov, dmpop@linux.com
+// License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+$CSVFILE="epc.csv";
+
 $row = 1;
-if (($handle = fopen("epc.csv", "r")) !== FALSE) {
-    
-    echo '<html lang="en">';
-    echo '<head>';
-    echo '<meta charset="utf-8">';
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    echo '<link href="favicon.png" rel="icon" type="image/png" />';
-    echo '<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">';
-    echo '<link rel="stylesheet" type="text/css" href="styles.css">';
-    echo '<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type=text/css"">';
-    echo '<title>Everyday Photo Carry</title>';
-    echo '</head>';
-    echo '<body>';
-    echo '<div id="content">';
-    echo '<h1>Everyday Photo Carry</h1>';
-    echo '<table class="pure-table pure-table-horizontal">';
-    
+if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
+    echo "<html lang='en'>
+    <head>
+    <meta charset='utf-8'>
+    <title>Everyday Photo Carry</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href='favicon.png' rel='icon' type='image/png' />
+    <link rel='stylesheet' href='https://unpkg.com/purecss@1.0.0/build/pure-min.css' integrity='sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w' crossorigin='anonymous'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type=text/css'>
+<style>
+#content {
+        margin: 0px auto;
+        text-align: center;
+        }
+p {
+    font: 15px 'Lato', sans-serif;
+    }
+
+h1 {
+    font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 3px;
+    color: #cc6600;
+}
+table {
+    font: 15px 'Lato', sans-serif;
+    border-spacing: 5px;
+    margin: 0px auto;
+    text-align: left;
+    }
+th{
+    font-weight: 600;
+}
+td{
+    letter-spacing: 2px;
+    text-align: left;
+}
+td.col1 {
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-align: left;
+    color: #3399ff;
+}
+td.col2 {
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+<div id='content'>
+<h1>Everyday Photo Carry</h1>
+<table class='pure-table pure-table-horizontal'>";
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
         $num = count($data);
         if ($row == 1) {
@@ -25,7 +63,6 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
         } else {
             echo '<tr>';
         }
-        
         if (empty($data[0])) {
             $value = "&nbsp;";
         } else {
@@ -43,7 +80,6 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
             echo '<td class="col2">' . $value2 . '</td>';
         }
         // }
-        
         if ($row == 1) {
             echo '</tr></thead><tbody>';
         } else {
@@ -51,10 +87,12 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
         }
         $row++;
     }
-    
-    echo '</tbody></table>';
-    echo '</body>';
-    echo '</html>';
+    echo "</tbody>
+</table>
+<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
+</div>
+</body>
+</html>";
     fclose($handle);
 }
 ?> 
