@@ -21,26 +21,31 @@ if (($handle = fopen("epc.csv", "r")) !== FALSE) {
         $num = count($data);
         if ($row == 1) {
             echo '<thead><tr>';
-        }else{
+        } else {
             echo '<tr>';
         }
-	
-        for ($c=0; $c < $num; $c++) {
-            if(empty($data[$c])) {
-		$value = "&nbsp;";
-            }else{
-		$value = $data[$c];
-            }
-            if ($row == 1) {
-                echo '<th>'.$value.'</th>';
-            }else{
-                echo '<td>'.$value.'</td>';
-            }
+        
+        if (empty($data[0])) {
+            $value = "&nbsp;";
+        } else {
+            $value0 = $data[0];
+            $value1 = $data[1];
+            $value2 = $data[2];
         }
-	
+        if ($row == 1) {
+            echo '<th>' . $value0 . '</th>';
+            echo '<th>' . $value1 . '</th>';
+            echo '<th>' . $value2 . '</th>';
+        } else {
+            echo '<td>' . $value0 . '</td>';
+            echo '<td class="col1">' . $value1 . '</td>';
+            echo '<td class="col2">' . $value2 . '</td>';
+        }
+        // }
+        
         if ($row == 1) {
             echo '</tr></thead><tbody>';
-        }else{
+        } else {
             echo '</tr>';
         }
         $row++;
