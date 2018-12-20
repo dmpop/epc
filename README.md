@@ -4,4 +4,11 @@ Everyday Photo Carry (EPC) is a supremely simple PHP script to keep track of pho
 
 ## Dependencies
 
-- PHP 5.x or higher
+- PHP 7.x or higher
+- Apache or any other web server (optional)
+
+# Installation and Usage
+
+The [Linux Photography](https://gumroad.com/l/linux-photography) book provides instructions on installing and using Everyday Photo Carry. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
+
+<img src="https://scribblesandsnaps.files.wordpress.com/2016/07/linux-photography-6.jpg" width="200"/>
