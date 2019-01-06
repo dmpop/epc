@@ -1,4 +1,6 @@
 <html lang="en">
+    <!-- Author: Dmitri Popov, dmpop@linux.com
+         License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
     <head>
 	<meta charset="utf-8">
 	<title>Everyday Photo Carry</title>
@@ -54,7 +56,7 @@
 	    <p><button onclick="sortTable()" >Sort</button></p>
 	    <table id="theTable" class="pure-table pure-table-horizontal">
 		<?php
-		$CSVFILE = "epc.csv";
+		$CSVFILE = "data.csv";
 		$PHOTO="epc.jpg";
 		$row = 1;
 		if (($handle = fopen($CSVFILE, "r")) !== FALSE) {

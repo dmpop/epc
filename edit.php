@@ -36,36 +36,35 @@
             </form>
             <?php
             function Read() {
-                $file = "epc.csv";
-                echo file_get_contents( $file);
+                $CSVFILE = "data.csv";
+                echo file_get_contents($CSVFILE);
             }
-	    
             function Write() {
-                $file = "epc.csv";
-                $fp = fopen($file, "w");
+                $CSVFILE = "data.csv";
+                $fp = fopen($CSVFILE, "w");
                 $data = $_POST["text"];
                 fwrite($fp, $data);
                 fclose($fp);
             }
             ?>
-	    
             <?php
             if ($_POST["submit_check"]){
 		Write();
             };
-            ?>      
-	    
+            ?>
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 		<textarea name="text"><?php Read(); ?></textarea><br /><br />
 		<input type="submit" name="submit" value="Save">
 		<input type="hidden" name="submit_check" value="1">
             </form>
-        <p>Read the <a href="https://gumroad.com/l/linux-photography">Linux Photography</a> book</p>
-            <?php
+	    <?php
             if ($_POST["submit_check"]){
-		echo 'Done!';
+		echo '<script language="javascript">';
+		echo 'alert("Changes have been saved.")';
+		echo '</script>';
             };
             ?>
+            <p>Read the <a href="https://gumroad.com/l/linux-photography">Linux Photography</a> book</p>
 	</div>
     </body>
 </html>
