@@ -35,7 +35,9 @@
 	 }
 	 th {
 	     font-weight: 600;
-         cursor: pointer;
+	 }
+	 .sortable {
+	     cursor: pointer;
 	 }
 	 td {
 	     text-align: left;
@@ -75,7 +77,7 @@
 			    $value2 = $data[2];
 			}
 			if ($row == 1) {
-			    echo '<th onclick="sortTable(0)">' . $value0 . '</th>';
+			    echo '<th class="sortable" onclick="sortTable(0)">' . $value0 . '</th>';
 			    echo '<th>' . $value1 . '</th>';
 			    echo '<th>' . $value2 . '</th>';
 			} else {
