@@ -48,6 +48,11 @@
 	    <table id="theTable" class="pure-table pure-table-horizontal">
 		<?php
 		$CSVFILE = "data.csv";
+		if(!is_file($CSVFILE))
+		{
+		    $HEADER = "Item;Serial no.;Notes\nCameral Model;XXXXXX-XXXX;Note goes here";
+		    file_put_contents($CSVFILE, $HEADER);
+		}
 		$PHOTO="epc.jpg";
 		$row = 1;
 		if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
@@ -92,7 +97,7 @@
             </form>
 	    <?php
 	    if (file_exists($PHOTO)) {
-	    echo "<br/><img src='epc.jpg'>";
+		echo "<br/><img src='epc.jpg'>";
 	    }
 	    ?>
 	    <p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
