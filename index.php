@@ -4,20 +4,17 @@
     <head>
 	<meta charset="utf-8">
 	<title>Everyday Photo Carry</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="favicon.png" />
-	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-	<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="milligram.min.css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 	 #content {
              margin: 0px auto;
              text-align: center;
          }
-	 p {
-	     font: 15px 'Lato', sans-serif;
-	 }
 	 h1 {
-	     font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 3px;
+	     letter-spacing: 3px;
 	     color: #cc6600;
 	 }
 	 img {
@@ -26,25 +23,17 @@
 	     border-radius: 9px;
 	 }
 	 table {
-	     font: 15px 'Lato', sans-serif;
 	     border-spacing: 5px;
 	     margin: 0px auto;
 	     text-align: left;
 	     width:100%;
 	     max-width:800px;
 	 }
-	 th {
-	     font-weight: 600;
-	 }
 	 .sortable {
 	     cursor: pointer;
 	 }
-	 td {
-	     text-align: left;
-	 }
 	 td.col1 {
 	     letter-spacing: 2px;
-	     font-weight: 600;
 	     text-align: left;
 	     color: #3399ff;
 	 }
