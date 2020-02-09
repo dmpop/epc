@@ -10,6 +10,7 @@ require_once('protect.php');
 	<title>Everyday Photo Carry</title>
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+	<link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 	 h1 {
@@ -42,6 +43,8 @@ require_once('protect.php');
 	</style>
     </head>
     <body>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<h1>Everyday Photo Carry</h1>
 	<table id="theTable" class="pure-table pure-table-horizontal">
 	    <?php
@@ -75,9 +78,9 @@ require_once('protect.php');
 			echo '<th>' . $value3 . '</th>';
 		    } else {
 			if ($value0=='na'){
-			    echo '<td><a href="img/andi.jpeg"><img src="img/andi.jpeg"/></a></td>';
+			    echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
 			} else {
-			    echo '<td><a href="img/'.$value0.'"><img src="img/'.$value0.'"/></a></td>';
+			    echo '<td><a href="img/'.$value0.'" data-featherlight="image"><img src="img/'.$value0.'"/></a></td>';
 			}
 			echo '<td>'.$value1.'</td>';
     			echo '<td class="col1">'.$value2.'</td>';
