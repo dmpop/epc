@@ -7,24 +7,16 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="24"
-   height="24"
    viewBox="0 0 24 24"
-   fill="none"
-   stroke="currentColor"
-   stroke-width="2"
-   stroke-linecap="round"
-   stroke-linejoin="round"
-   class="feather feather-briefcase"
    version="1.1"
-   id="svg6"
+   id="svg12"
    sodipodi:docname="favicon.svg"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   inkscape:export-filename="/home/dmpop/Downloads/briefcase.png"
-   inkscape:export-xdpi="63.5"
-   inkscape:export-ydpi="63.5">
+   inkscape:export-filename="/home/dmpop/Downloads/favicon.png"
+   inkscape:export-xdpi="512"
+   inkscape:export-ydpi="512">
   <metadata
-     id="metadata12">
+     id="metadata18">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -35,7 +27,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs10" />
+     id="defs16" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -47,26 +39,38 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1015"
-     id="namedview8"
+     id="namedview14"
      showgrid="false"
      inkscape:zoom="9.8333333"
-     inkscape:cx="-21.559322"
+     inkscape:cx="12"
      inkscape:cy="12"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg6" />
-  <rect
-     x="2"
-     y="7"
-     width="20"
-     height="14"
-     rx="2"
-     ry="2"
-     id="rect2"
-     style="stroke:#88b3e4;stroke-opacity:1;fill:#ffcd99;fill-opacity:1" />
-  <path
-     d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
-     id="path4"
-     style="stroke:#e48888;stroke-opacity:1" />
+     inkscape:current-layer="g8" />
+  <g
+     data-name="Layer 2"
+     id="g10"
+     style="fill:#ff9955">
+    <g
+       data-name="camera"
+       id="g8"
+       style="fill:#ff9955">
+      <rect
+         width="24"
+         height="24"
+         opacity="0"
+         id="rect2"
+         style="fill:#ff9955" />
+      <path
+         d="M 19.88983,6.3644064 H 16.508474 V 4.6737284 A 2.8177966,2.8177966 0 0 0 13.690677,1.8559318 H 10.309322 A 2.8177966,2.8177966 0 0 0 7.4915255,4.6737284 v 1.690678 H 4.1101695 A 3.3813559,3.3813559 0 0 0 0.72881355,9.7457623 V 18.762712 A 3.3813559,3.3813559 0 0 0 4.1101695,22.144068 H 19.88983 a 3.3813559,3.3813559 0 0 0 3.381356,-3.381356 V 9.7457623 A 3.3813559,3.3813559 0 0 0 19.88983,6.3644064 Z M 9.7457625,4.6737284 A 0.56355932,0.56355932 0 0 1 10.309322,4.1101691 h 3.381355 a 0.56355932,0.56355932 0 0 1 0.56356,0.5635593 v 1.690678 H 9.7457625 Z M 21.016949,18.762712 A 1.1271186,1.1271186 0 0 1 19.88983,19.88983 H 4.1101695 A 1.1271186,1.1271186 0 0 1 2.9830509,18.762712 V 9.7457623 A 1.1271186,1.1271186 0 0 1 4.1101695,8.6186437 H 19.88983 a 1.1271186,1.1271186 0 0 1 1.127119,1.1271186 z"
+         id="path4"
+         style="fill:#ff9955;stroke-width:1.12711859"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M12 10.5a3.5 3.5 0 1 0 3.5 3.5 3.5 3.5 0 0 0-3.5-3.5zm0 5a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5z"
+         id="path6"
+         style="fill:#ff9955" />
+    </g>
+  </g>
 </svg>

@@ -25,17 +25,14 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 	    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	    <meta name="viewport" content="width=device-width">
 	    <link rel="shortcut icon" href="favicon.png" />
-	    <link rel="stylesheet" href="milligram.min.css">
-	    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>Everyday Photo Carry</title>
 	</head>
     </head>
     <body>
-	<div style="text-align:center;margin-top:50px;">
-            <form method="POST">
-		Password:  <input type="password" name="password">
-            </form>
-	</div>
+        <form method="POST">
+	    Password:  <input type="password" name="password">
+        </form>
     </body>
 </html>

@@ -9,17 +9,12 @@ require_once('protect.php');
 	<meta charset="utf-8">
 	<title>Everyday Photo Carry</title>
 	<link rel="shortcut icon" href="favicon.png" />
-	<link rel="stylesheet" href="milligram.min.css">
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
-	 #content {
-             margin: 0px auto;
-             text-align: center;
-         }
 	 h1 {
 	     letter-spacing: 3px;
-	     color: #cc6600;
+	     color: #99ccff;
 	 }
 	 img {
 	     width:100px;
@@ -47,64 +42,62 @@ require_once('protect.php');
 	</style>
     </head>
     <body>
-	<div id="content">
-	    <h1>Everyday Photo Carry</h1>
-	    <table id="theTable" class="pure-table pure-table-horizontal">
-		<?php
-		$CSVFILE = "data.csv";
-		if(!is_file($CSVFILE))
-		{
-		    $HEADER = "Photo;Item;Serial no.;Notes\nandi.jpeg;Cameral Model;XXXXXX-XXXX;Note goes here";
-		    file_put_contents($CSVFILE, $HEADER);
-		}
-		$row = 1;
-		if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
-		    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-			$num = count($data);
-			if ($row == 1) {
-			    echo '<thead><tr>';
+	<h1>Everyday Photo Carry</h1>
+	<table id="theTable" class="pure-table pure-table-horizontal">
+	    <?php
+	    $CSVFILE = "data.csv";
+	    if(!is_file($CSVFILE))
+	    {
+		$HEADER = "Photo;Item;Serial no.;Notes\nandi.jpeg;Cameral Model;XXXXXX-XXXX;Note goes here";
+		file_put_contents($CSVFILE, $HEADER);
+	    }
+	    $row = 1;
+	    if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
+		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+		    $num = count($data);
+		    if ($row == 1) {
+			echo '<thead><tr>';
+		    } else {
+			echo '<tr>';
+		    }
+		    if (empty($data[0])) {
+			$value = "&nbsp;";
+		    } else {
+			$value0 = $data[0];
+			$value1 = $data[1];
+			$value2 = $data[2];
+			$value3 = $data[3];
+		    }
+		    if ($row == 1) {
+			echo '<th>' . $value0 . '</th>';
+			echo '<th>' . $value1 . '</th>';
+			echo '<th>' . $value2 . '</th>';
+			echo '<th>' . $value3 . '</th>';
+		    } else {
+			if ($value0=='na'){
+			    echo '<td><a href="img/andi.jpeg"><img src="img/andi.jpeg"/></a></td>';
 			} else {
-			    echo '<tr>';
-			}
-			if (empty($data[0])) {
-			    $value = "&nbsp;";
-			} else {
-			    $value0 = $data[0];
-			    $value1 = $data[1];
-			    $value2 = $data[2];
-			    $value3 = $data[3];
-			}
-			if ($row == 1) {
-			    echo '<th>' . $value0 . '</th>';
-			    echo '<th>' . $value1 . '</th>';
-			    echo '<th>' . $value2 . '</th>';
-			    echo '<th>' . $value3 . '</th>';
-			} else {
-			    if ($value0=='na'){
-			        echo '<td><a href="img/andi.jpeg"><img src="img/andi.jpeg"/></a></td>';
-			    } else {
 			    echo '<td><a href="img/'.$value0.'"><img src="img/'.$value0.'"/></a></td>';
-			    }
-			    echo '<td>'.$value1.'</td>';
+			}
+			echo '<td>'.$value1.'</td>';
     			echo '<td class="col1">'.$value2.'</td>';
     			echo '<td class="col2">'.$value3.'</td>';
-			}
-			if ($row == 1) {
-			    echo '</tr></thead><tbody>';
-			} else {
-			    echo '</tr>';
-			}
-			$row++;
 		    }
-		    fclose($handle);
+		    if ($row == 1) {
+			echo '</tr></thead><tbody>';
+		    } else {
+			echo '</tr>';
+		    }
+		    $row++;
 		}
-		?>
+		fclose($handle);
+	    }
+	    ?>
 </tbody>
-	    </table>
-            <form method='GET' action='edit.php'>
-		<p><button type='submit'>Edit</button></p>
-            </form>
-	    <p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
-	</div>
+	</table>
+        <form method='GET' action='edit.php'>
+	    <p><button type='submit'>Edit</button></p>
+        </form>
+	<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
     </body>
 </html>
