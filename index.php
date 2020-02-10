@@ -99,7 +99,7 @@ require_once('protect.php');
 </tbody>
 	</table>
         <form method='GET' action='edit.php'>
-	    <p><button type='submit'>Edit</button></p>
+	    <p><button type='submit'>Edit</button> <a href="upload.php">Upload</a></p>
         </form>
 	<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
     </body>
