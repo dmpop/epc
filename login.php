@@ -1,6 +1,6 @@
 <?php
 /* Your password */
-$password = 'c0wpat33';
+$password = 'password';
 
 /* Redirects here after login */
 $redirect_after_login = 'index.php';
@@ -20,18 +20,28 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<head>
-	    
-	    <meta name="viewport" content="width=device-width">
-	    <link rel="shortcut icon" href="favicon.png" />
-	    <link rel="stylesheet" href="css/classless.css">
-	    <title>Everyday Photo Carry</title>
-	</head>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="favicon.png" />
+        <link rel="stylesheet" href="css/classless.css">
+        <title>Everyday Photo Carry</title>
     </head>
-    <body>
-        <form method="POST">
-	    Password:  <input type="password" name="password">
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1 style="margin-top: 0em; margin-bottom: 1.5em;">Everyday Photo Carry</h1>
+        <form action="" method="POST">
+        <p>Password:</p>
+            <input type="password" name="password">
+            <button type="submit" name="submit">Submit</button>
         </form>
-    </body>
+    </div>
+</body>
+
 </html>

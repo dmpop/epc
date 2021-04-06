@@ -1,4 +1,2 @@
 .directory
-wimb.sqlite
-bottle.pyc
-__pycache__
+data.csv

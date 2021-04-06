@@ -22,7 +22,7 @@ error_reporting(E_ERROR);
 
         textarea {
             font-size: 15px;
-            width: 90%;
+            width: 100%;
             max-width: 95%;
             height: 75%;
         }
@@ -33,41 +33,39 @@ error_reporting(E_ERROR);
     <div style="text-align: center;">
         <h1 style="margin-top: 0em; margin-bottom: 1em;">Everyday Photo Carry</h1>
         <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
-    </div>
-    <?php
-    function Read()
-    {
-        $CSVFILE = "data.csv";
-        echo file_get_contents($CSVFILE);
-    }
-    function Write()
-    {
-        $CSVFILE = "data.csv";
-        $fp = fopen($CSVFILE, "w");
-        $data = $_POST["text"];
-        fwrite($fp, $data);
-        fclose($fp);
-    }
-    ?>
-    <?php
-    if (isset($_POST["save"])) {
-        Write();
-    };
-    ?>
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-        <textarea name="text"><?php Read(); ?></textarea>
-        <br />
-        <div style="text-align: center;">
-            <button type="submit" name="save">Save</button>
-    </form>
-    <?php
-    if (isset($_POST["save"])) {
-        echo '<script language="javascript">';
-        echo 'alert("Changes have been saved.")';
-        echo '</script>';
-    };
-    ?>
-    <p>Read the <a href="https://gumroad.com/l/linux-photography">Linux Photography</a> book</p>
+        <?php
+        function Read()
+        {
+            $CSVFILE = "data.csv";
+            echo file_get_contents($CSVFILE);
+        }
+        function Write()
+        {
+            $CSVFILE = "data.csv";
+            $fp = fopen($CSVFILE, "w");
+            $data = $_POST["text"];
+            fwrite($fp, $data);
+            fclose($fp);
+        }
+        ?>
+        <?php
+        if (isset($_POST["save"])) {
+            Write();
+        };
+        ?>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+            <textarea name="text"><?php Read(); ?></textarea>
+            <br />
+            <button style="margin-top: 2em;" type="submit" name="save">Save</button>
+        </form>
+        <?php
+        if (isset($_POST["save"])) {
+            echo '<script language="javascript">';
+            echo 'alert("Changes have been saved.")';
+            echo '</script>';
+        };
+        ?>
+        <p>Read the <a href="https://gumroad.com/l/linux-photography">Linux Photography</a> book</p>
     </div>
 </body>
 

@@ -52,59 +52,57 @@ require_once('protect.php');
 	<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<div style="text-align: center;">
 		<h1 style="margin-top: 0em; margin-bottom: 1.5em;">Everyday Photo Carry</h1>
-	</div>
-	<table>
-		<?php
-		$CSVFILE = "data.csv";
-		if (!is_file($CSVFILE)) {
-			$HEADER = "Photo;Item;Serial no.;Notes\nCameral Model;XXXXXX-XXXX;Note goes here";
-			file_put_contents($CSVFILE, $HEADER);
-		}
-		$row = 1;
-		if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
-			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-				$num = count($data);
-				if ($row == 1) {
-					echo '<thead><tr>';
-				} else {
-					echo '<tr>';
-				}
-				if (empty($data[0])) {
-					$value = "&nbsp;";
-				} else {
-					$value0 = $data[0];
-					$value1 = $data[1];
-					$value2 = $data[2];
-					$value3 = $data[3];
-				}
-				if ($row == 1) {
-					echo '<th style="text-align: center;">' . $value0 . '</th>';
-					echo '<th>' . $value1 . '</th>';
-					echo '<th>' . $value2 . '</th>';
-					echo '<th>' . $value3 . '</th>';
-				} else {
-					if ($value0 == 'na') {
-						echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
-					} else {
-						echo '<td><a href="img/' . $value0 . '" data-featherlight="image"><img src="img/' . $value0 . '"/></a></td>';
-					}
-					echo '<td class="col0">' . $value1 . '</td>';
-					echo '<td class="col1">' . $value2 . '</td>';
-					echo '<td class="col2">' . $value3 . '</td>';
-				}
-				if ($row == 1) {
-					echo '</tr></thead><tbody>';
-				} else {
-					echo '</tr>';
-				}
-				$row++;
+		<table>
+			<?php
+			$CSVFILE = "data.csv";
+			if (!is_file($CSVFILE)) {
+				$HEADER = "Photo;Item;Serial no.;Notes\nandi.jpeg;Cameral Model;XXXXXX-XXXX;Note goes here";
+				file_put_contents($CSVFILE, $HEADER);
 			}
-			fclose($handle);
-		}
-		?>
-		</tbody>
-	</table>
-	<div style="text-align: center;">
+			$row = 1;
+			if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
+				while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+					$num = count($data);
+					if ($row == 1) {
+						echo '<thead><tr>';
+					} else {
+						echo '<tr>';
+					}
+					if (empty($data[0])) {
+						$value = "&nbsp;";
+					} else {
+						$value0 = $data[0];
+						$value1 = $data[1];
+						$value2 = $data[2];
+						$value3 = $data[3];
+					}
+					if ($row == 1) {
+						echo '<th style="text-align: center;">' . $value0 . '</th>';
+						echo '<th>' . $value1 . '</th>';
+						echo '<th>' . $value2 . '</th>';
+						echo '<th>' . $value3 . '</th>';
+					} else {
+						if ($value0 == 'na') {
+							echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
+						} else {
+							echo '<td><a href="img/' . $value0 . '" data-featherlight="image"><img src="img/' . $value0 . '"/></a></td>';
+						}
+						echo '<td class="col0">' . $value1 . '</td>';
+						echo '<td class="col1">' . $value2 . '</td>';
+						echo '<td class="col2">' . $value3 . '</td>';
+					}
+					if ($row == 1) {
+						echo '</tr></thead><tbody>';
+					} else {
+						echo '</tr>';
+					}
+					$row++;
+				}
+				fclose($handle);
+			}
+			?>
+			</tbody>
+		</table>
 		<button style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button onclick='window.location.href = "upload.php"'>Upload</button>
 		<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
 	</div>
