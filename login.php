@@ -1,6 +1,6 @@
 <?php
 /* Your password */
-$password = 'password';
+$password = 'c0wpat33';
 
 /* Redirects here after login */
 $redirect_after_login = 'index.php';
@@ -20,13 +20,12 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<head>
-	    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	    
 	    <meta name="viewport" content="width=device-width">
 	    <link rel="shortcut icon" href="favicon.png" />
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="css/classless.css">
 	    <title>Everyday Photo Carry</title>
 	</head>
     </head>
