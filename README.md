@@ -1,6 +1,4 @@
-# Everyday Photo Carry
-
-Everyday Photo Carry (EPC) is a supremely simple PHP application to keep track of photographic equipment. It can be useful for photographers lugging around large amounts of photographic equipment, or anyone who has too much stuff is their bags.
+Everyday Photo Carry (EPC) is a supremely simple application written in PHP to keep track of photographic equipment. It can be useful for photographers lugging around large amounts of photographic equipment, or anyone who has too much stuff is their bags.
 
 ## Dependencies
 

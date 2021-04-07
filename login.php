@@ -1,6 +1,5 @@
 <?php
-/* Your password */
-$password = 'password';
+include('config.php');
 
 /* Redirects here after login */
 $redirect_after_login = 'index.php';
@@ -29,13 +28,13 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="favicon.png" />
         <link rel="stylesheet" href="css/classless.css">
-        <title>Everyday Photo Carry</title>
+        <title><?php echo $title ?></title>
     </head>
 </head>
 
 <body>
     <div style="text-align: center;">
-        <h1 style="margin-top: 0em; margin-bottom: 1.5em;">Everyday Photo Carry</h1>
+        <h1 style="margin-top: 0em; margin-bottom: 1.5em;"><?php echo $title ?></h1>
         <form action="" method="POST">
         <p>Password:</p>
             <input type="password" name="password">

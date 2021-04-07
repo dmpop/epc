@@ -1,5 +1,8 @@
 <?php
-require_once('protect.php');
+include('config.php');
+if ($protect) {
+	require_once('protect.php');
+}
 ?>
 
 <html lang="en">
@@ -51,7 +54,7 @@ require_once('protect.php');
 	<script src="js/jquery.min.js"></script>
 	<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<div style="text-align: center;">
-		<h1 style="margin-top: 0em; margin-bottom: 1.5em;">Everyday Photo Carry</h1>
+		<h1 style="margin-top: 0em; margin-bottom: 1.5em;"><?php echo $title ?></h1>
 		<table>
 			<?php
 			$CSVFILE = "data.csv";
@@ -104,8 +107,7 @@ require_once('protect.php');
 			</tbody>
 		</table>
 		<button style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button onclick='window.location.href = "upload.php"'>Upload</button>
-		<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
+		<p><?php echo $footer ?></p>
 	</div>
 </body>
-
 </html>

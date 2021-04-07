@@ -31,7 +31,7 @@ error_reporting(E_ERROR);
 
 <body>
     <div style="text-align: center;">
-        <h1 style="margin-top: 0em; margin-bottom: 1em;">Everyday Photo Carry</h1>
+        <h1 style="margin-top: 0em; margin-bottom: 1em;"><?php echo $title ?></h1>
         <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
         <?php
         function Read()
@@ -65,7 +65,7 @@ error_reporting(E_ERROR);
             echo '</script>';
         };
         ?>
-        <p>Read the <a href="https://gumroad.com/l/linux-photography">Linux Photography</a> book</p>
+        <p><?php echo $footer ?></p>
     </div>
 </body>
 

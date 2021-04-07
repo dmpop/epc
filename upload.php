@@ -1,5 +1,8 @@
 <?php
-require_once('protect.php');
+include('config.php');
+if ($protect) {
+	require_once('protect.php');
+}
 ?>
 
 <html lang="en">
@@ -8,7 +11,7 @@ require_once('protect.php');
 
 <head>
 	<meta charset="utf-8">
-	<title>Everyday Photo Carry</title>
+	<title><?php echo $title ?></title>
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="css/classless.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +33,7 @@ require_once('protect.php');
 
 <body>
 	<div style="text-align: center;">
-		<h1 style="margin-top: 0em; margin-bottom: 1em;">Everyday Photo Carry</h1>
+		<h1 style="margin-top: 0em; margin-bottom: 1em;"><?php echo $title ?></h1>
 		<button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
 	</div>
 	<?php
@@ -47,6 +50,9 @@ require_once('protect.php');
 			// upload file
 			move_uploaded_file($_FILES['file']['tmp_name'][$i], $upload_dir . DIRECTORY_SEPARATOR . $filename);
 		}
+		echo '<script language="javascript">';
+		echo 'alert("Upload completed.")';
+		echo '</script>';
 	}
 	?>
 	<form method='post' action='' enctype='multipart/form-data'>
@@ -55,7 +61,7 @@ require_once('protect.php');
 			<button role="button" name="submit">Upload</button>
 	</form>
 	<p>
-	<p>Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book</p>
+	<p><?php echo $footer ?></p>
 	</p>
 	</div>
 </body>
