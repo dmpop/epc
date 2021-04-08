@@ -5,7 +5,7 @@ if ($protect) {
 }
 ?>
 
-<html lang="en">
+<html lang="en" data-theme="<?php echo $theme ?>">
 <!-- Author: Dmitri Popov, dmpop@linux.com
          License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
@@ -36,7 +36,7 @@ if ($protect) {
 		td.col1 {
 			letter-spacing: 2px;
 			text-align: left;
-			color: #3399ff;
+			color: #c46c6cff;
 		}
 
 		td.col2 {
@@ -54,60 +54,69 @@ if ($protect) {
 	<script src="js/jquery.min.js"></script>
 	<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<div style="text-align: center;">
-		<h1 style="margin-top: 0em; margin-bottom: 1.5em;"><?php echo $title ?></h1>
-		<table>
-			<?php
-			$CSVFILE = "data.csv";
-			if (!is_file($CSVFILE)) {
-				$HEADER = "Photo;Item;Serial no.;Notes\nandi.jpeg;Cameral Model;XXXXXX-XXXX;Note goes here";
-				file_put_contents($CSVFILE, $HEADER);
-			}
-			$row = 1;
-			if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
-				while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-					$num = count($data);
-					if ($row == 1) {
-						echo '<thead><tr>';
-					} else {
-						echo '<tr>';
-					}
-					if (empty($data[0])) {
-						$value = "&nbsp;";
-					} else {
-						$value0 = $data[0];
-						$value1 = $data[1];
-						$value2 = $data[2];
-						$value3 = $data[3];
-					}
-					if ($row == 1) {
-						echo '<th style="text-align: center;">' . $value0 . '</th>';
-						echo '<th>' . $value1 . '</th>';
-						echo '<th>' . $value2 . '</th>';
-						echo '<th>' . $value3 . '</th>';
-					} else {
-						if ($value0 == 'na') {
-							echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
-						} else {
-							echo '<td><a href="img/' . $value0 . '" data-featherlight="image"><img src="img/' . $value0 . '"/></a></td>';
-						}
-						echo '<td class="col0">' . $value1 . '</td>';
-						echo '<td class="col1">' . $value2 . '</td>';
-						echo '<td class="col2">' . $value3 . '</td>';
-					}
-					if ($row == 1) {
-						echo '</tr></thead><tbody>';
-					} else {
-						echo '</tr>';
-					}
-					$row++;
+		<img style="height: 3em;" src="favicon.svg" alt="logo" />
+		<h1 style="margin-top: 0em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
+		<div class="card" style="margin-top: 2em; margin-bottom: 1.5em;">
+			<table>
+				<?php
+				$CSVFILE = "data.csv";
+				if (!is_file($CSVFILE)) {
+					$HEADER = "Photo; Item; Serial no.; Price; Notes\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Note goes here";
+					file_put_contents($CSVFILE, $HEADER);
 				}
-				fclose($handle);
-			}
+				$sum = 0;
+				$row = 1;
+				if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
+					while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+						if ($row == 1) {
+							echo '<thead><tr>';
+						} else {
+							echo '<tr>';
+						}
+						if (empty($data[0])) {
+							$value = "&nbsp;";
+						} else {
+							$value0 = $data[0];
+							$value1 = $data[1];
+							$value2 = $data[2];
+							$value3 = $data[3];
+							$sum += floatval($value3);
+							$value4 = $data[4];
+						}
+						if ($row == 1) {
+							echo '<th>' . $value1 . '</th>';
+							echo '<th>' . $value2 . '</th>';
+							echo '<th>' . $value3 . ' (' . $currency . ')</th>';
+							echo '<th>' . $value4 . '</th>';
+						} else {
+							if ($value0 == 'na') {
+								echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
+							} else {
+								echo '<td><a href="img/' . $value0 . '" data-featherlight="image">' . $value1 . '</a></td>';
+							}
+							echo '<td class="col1">' . $value2 . '</td>';
+							echo '<td>' . number_format(floatval($value3), 2) . '</td>';
+							echo '<td class="col2">' . $value4 . '</td>';
+						}
+						if ($row == 1) {
+							echo '</tr></thead><tbody>';
+						} else {
+							echo '</tr>';
+						}
+						$row++;
+					}
+					fclose($handle);
+				}
+				?>
+				</tbody>
+			</table>
+			<?php
+			echo "<p style='text-align: center;'> Total: <strong>" . number_format(floatval($sum), 2) . "</strong></p>";
 			?>
-			</tbody>
-		</table>
+		</div>
 		<button style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button onclick='window.location.href = "upload.php"'>Upload</button>
-		<p><?php echo $footer ?></p>
+		<p style="font-size: 85%"><?php echo $footer ?></p>
 	</div>
 </body>
+
 </html>

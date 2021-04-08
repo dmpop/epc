@@ -3,7 +3,7 @@ require_once('protect.php');
 error_reporting(E_ERROR);
 ?>
 
-<html lang='en'>
+<html lang="en" data-theme="<?php echo $theme ?>">
 <!-- Author: Dmitri Popov, dmpop@linux.com
          License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
@@ -24,14 +24,15 @@ error_reporting(E_ERROR);
             font-size: 15px;
             width: 100%;
             max-width: 95%;
-            height: 75%;
+            height: 50%;
         }
     </style>
 </head>
 
 <body>
     <div style="text-align: center;">
-        <h1 style="margin-top: 0em; margin-bottom: 1em;"><?php echo $title ?></h1>
+        <img style="height: 3em;" src="favicon.svg" alt="logo" />
+        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
         <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
         <?php
         function Read()
@@ -53,11 +54,13 @@ error_reporting(E_ERROR);
             Write();
         };
         ?>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-            <textarea name="text"><?php Read(); ?></textarea>
-            <br />
-            <button style="margin-top: 2em;" type="submit" name="save">Save</button>
-        </form>
+        <div class="card">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                <textarea style="margin-top: 2em;" name="text"><?php Read(); ?></textarea>
+                <br />
+                <button style="margin-top: 2em;" type="submit" name="save">Save</button>
+            </form>
+        </div>
         <?php
         if (isset($_POST["save"])) {
             echo '<script language="javascript">';
@@ -65,7 +68,7 @@ error_reporting(E_ERROR);
             echo '</script>';
         };
         ?>
-        <p><?php echo $footer ?></p>
+        <p style="font-size: 85%"><?php echo $footer ?></p>
     </div>
 </body>
 

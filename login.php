@@ -18,7 +18,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="<?php echo $theme ?>">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -34,12 +34,15 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 
 <body>
     <div style="text-align: center;">
-        <h1 style="margin-top: 0em; margin-bottom: 1.5em;"><?php echo $title ?></h1>
-        <form action="" method="POST">
-        <p>Password:</p>
-            <input type="password" name="password">
-            <button type="submit" name="submit">Submit</button>
-        </form>
+        <img style="height: 3em;" src="favicon.svg" alt="logo" />
+        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
+        <div class="card">
+            <form action="" method="POST">
+                <p>Password:</p>
+                <input type="password" name="password">
+                <button type="submit" name="submit">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 

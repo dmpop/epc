@@ -11,7 +11,7 @@ Table of Contents:
 –––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Free, Beautiful Unicode Font */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,400');
 
 html[data-theme='light'],
 :root
@@ -26,8 +26,8 @@ html[data-theme='light'],
 	--cfg: #433;
 	--cbg: #fff;
 	--ornament: "‹‹‹ ›››";
-	--font-p: 13pt 'Open Sans', Arial, sans-serif;
-	--font-h: 13pt 'Open Sans', Arial, sans-serif;
+	--font-p: 13pt 'Barlow', Arial, sans-serif;
+	--font-h: 13pt 'Barlow', Arial, sans-serif;
 	--font-c: 12pt monospace;
 }
 
