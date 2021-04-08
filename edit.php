@@ -10,7 +10,7 @@ error_reporting(E_ERROR);
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>Everyday Photo Carry</title>
+    <title><?php echo $title ?></title>
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" href="css/classless.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">

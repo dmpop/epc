@@ -12,7 +12,7 @@ if ($protect) {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<title>Everyday Photo Carry</title>
+	<title><?php echo $title ?></title>
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="css/classless.css">
 	<link href="css/featherlight.min.css" type="text/css" rel="stylesheet" />
