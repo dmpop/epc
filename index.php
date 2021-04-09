@@ -29,19 +29,10 @@ if ($protect) {
 			border-radius: 9px;
 		}
 
-		td.col0 {
-			text-align: left;
-		}
-
 		td.col1 {
 			letter-spacing: 2px;
 			text-align: left;
 			color: #c46c6cff;
-		}
-
-		td.col2 {
-			font-style: italic;
-			text-align: left;
 		}
 
 		th {
@@ -51,8 +42,6 @@ if ($protect) {
 </head>
 
 <body>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<div style="text-align: center;">
 		<img style="height: 3em;" src="favicon.svg" alt="logo" />
 		<h1 style="margin-top: 0em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
@@ -86,17 +75,11 @@ if ($protect) {
 						if ($row == 1) {
 							echo '<th>' . $value1 . '</th>';
 							echo '<th>' . $value2 . '</th>';
-							echo '<th>' . $value3 . ' (' . $currency . ')</th>';
-							echo '<th>' . $value4 . '</th>';
+							echo '<th style="text-align: right;">' . $value3 . ' (' . $currency . ')</th>';
 						} else {
-							if ($value0 == 'na') {
-								echo '<td><a href="img/andi.jpeg" data-featherlight="image"><img src="img/andi.jpeg"/></a></td>';
-							} else {
-								echo '<td><a href="img/' . $value0 . '" data-featherlight="image">' . $value1 . '</a></td>';
-							}
+							echo '<td></a> <a href="view.php?item=' . $row . '">' . $value1 . '</a></td>';
 							echo '<td class="col1">' . $value2 . '</td>';
-							echo '<td>' . number_format(floatval($value3), 2) . '</td>';
-							echo '<td class="col2">' . $value4 . '</td>';
+							echo '<td style="text-align: right;">' . number_format(floatval($value3), 2) . '</td>';
 						}
 						if ($row == 1) {
 							echo '</tr></thead><tbody>';

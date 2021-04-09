@@ -10,5 +10,5 @@
     // Currency symbol
     $currency = "€";
     // Footer
-    $footer = "Read the <a href='https://gumroad.com/l/linux-photography'>Linux Photography</a> book";
+    $footer = "I really 🧡 <a href='https://www.paypal.com/paypalme/dmpop'>coffee</a>";
 ?>
