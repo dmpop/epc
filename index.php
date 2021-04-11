@@ -27,13 +27,13 @@ if ($protect) {
 				<?php
 				$CSVFILE = "data.csv";
 				if (!is_file($CSVFILE)) {
-					$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here";
+					$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes;\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here;";
 					file_put_contents($CSVFILE, $HEADER);
 				}
 				$sum = 0;
 				$row = 1;
 				if (($handle = fopen($CSVFILE, "r")) !== FALSE) {
-					while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+					while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
 						if ($row == 1) {
 							echo '<thead><tr>';
 						} else {
