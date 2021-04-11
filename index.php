@@ -15,7 +15,6 @@ if ($protect) {
 	<title><?php echo $title ?></title>
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="css/classless.css">
-	<link href="css/featherlight.min.css" type="text/css" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		h1 {
@@ -62,16 +61,12 @@ if ($protect) {
 						} else {
 							echo '<tr>';
 						}
-						if (empty($data[0])) {
-							$value = "&nbsp;";
-						} else {
-							$value0 = $data[0];
-							$value1 = $data[1];
-							$value2 = $data[2];
-							$value3 = $data[3];
-							$sum += floatval($value3);
-							$value4 = $data[4];
-						}
+						$value0 = $data[0];
+						$value1 = $data[1];
+						$value2 = $data[2];
+						$value3 = $data[3];
+						$sum += floatval($value3);
+						$value4 = $data[4];
 						if ($row == 1) {
 							echo '<th>' . $value1 . '</th>';
 							echo '<th>' . $value2 . '</th>';
