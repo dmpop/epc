@@ -35,7 +35,7 @@ if ($protect) {
 	<div style="text-align: center;">
 		<img style="height: 3em;" src="favicon.svg" alt="logo" />
 		<h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
-		<button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
+		<button style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button> <button style="margin-bottom: 2em;"  onclick='window.location.href = "edit.php"'>Edit</button>
 		<?php
 		$upload_dir = "img/";
 		if (isset($_POST['submit'])) {

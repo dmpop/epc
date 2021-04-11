@@ -15,11 +15,6 @@ error_reporting(E_ERROR);
     <link rel="stylesheet" href="css/classless.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        h1 {
-            letter-spacing: 3px;
-            color: #99ccff;
-        }
-
         textarea {
             font-size: 15px;
             width: 100%;

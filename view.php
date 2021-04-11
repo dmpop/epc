@@ -16,26 +16,13 @@ if ($protect) {
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" href="css/classless.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        h1 {
-            letter-spacing: 3px;
-            color: #99ccff;
-        }
-
-        textarea {
-            font-size: 15px;
-            width: 100%;
-            max-width: 95%;
-            height: 50%;
-        }
-    </style>
 </head>
 
 <body>
     <div style="text-align: center;">
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
         <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
-        <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
+        <button style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button> <button style="margin-bottom: 2em;"  onclick='window.location.href = "edit.php"'>Edit</button>
         <div class="card" style="margin-top: 2em; margin-bottom: 1.5em;">
             <?php
             $CSVFILE = "data.csv";

@@ -16,28 +16,6 @@ if ($protect) {
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="css/classless.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		h1 {
-			letter-spacing: 3px;
-			color: #99ccff;
-		}
-
-		img {
-			width: 100px;
-			max-width: 800px;
-			border-radius: 9px;
-		}
-
-		td.col1 {
-			letter-spacing: 2px;
-			text-align: left;
-			color: #c46c6cff;
-		}
-
-		th {
-			text-align: left;
-		}
-	</style>
 </head>
 
 <body>
@@ -74,7 +52,7 @@ if ($protect) {
 							echo '<th style="text-align: right;">' . $value4 . '</th>';
 						} else {
 							echo '<td></a> <a href="view.php?item=' . $row . '">' . $value1 . '</a></td>';
-							echo '<td class="col1">' . $value2 . '</td>';
+							echo '<td style="letter-spacing: 2px; text-align: left; color: #c46c6cff;">' . $value2 . '</td>';
 							echo '<td style="text-align: right;">' . number_format(floatval($value3), 2) . '</td>';
 							echo '<td style="text-align: right;">' . $value4 . '</td>';
 						}
