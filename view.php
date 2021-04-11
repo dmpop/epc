@@ -53,7 +53,7 @@ if ($protect) {
                     echo '<img style="width: 100%;  border-radius: 7px; margin-top: 0.5em;" src="img/' . $value0 . '" />';
                     echo '<hr style="margin-top: 2em;">';
                     echo '<p><div style="color: gray;">Serial number:</div>' . $value2 . '</p>';
-                    echo '<p><div style="color: gray;">Price (' . $currency . '):</div>' . number_format(floatval($value3), 2) . '</p>';
+                    echo '<p><div style="color: gray;">Price:</div>' . number_format(floatval($value3), 2) . '</p>';
                     echo '<p><div style="color: gray;">Note:</div>' . $value4 . '</p>';
                     echo '</div>';
                 }

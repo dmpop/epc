@@ -49,7 +49,7 @@ if ($protect) {
 				<?php
 				$CSVFILE = "data.csv";
 				if (!is_file($CSVFILE)) {
-					$HEADER = "Photo; Item; Serial no.; Price; Notes\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Note goes here";
+					$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here";
 					file_put_contents($CSVFILE, $HEADER);
 				}
 				$sum = 0;
@@ -70,11 +70,13 @@ if ($protect) {
 						if ($row == 1) {
 							echo '<th>' . $value1 . '</th>';
 							echo '<th>' . $value2 . '</th>';
-							echo '<th style="text-align: right;">' . $value3 . ' (' . $currency . ')</th>';
+							echo '<th style="text-align: right;">' . $value3 . '</th>';
+							echo '<th style="text-align: right;">' . $value4 . '</th>';
 						} else {
 							echo '<td></a> <a href="view.php?item=' . $row . '">' . $value1 . '</a></td>';
 							echo '<td class="col1">' . $value2 . '</td>';
 							echo '<td style="text-align: right;">' . number_format(floatval($value3), 2) . '</td>';
+							echo '<td style="text-align: right;">' . $value4 . '</td>';
 						}
 						if ($row == 1) {
 							echo '</tr></thead><tbody>';

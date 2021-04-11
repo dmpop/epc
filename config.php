@@ -7,8 +7,6 @@
     $protect = true;
     // Password
     $password = "password";
-    // Currency symbol
-    $currency = "€";
     // Footer
     $footer = "I really 🧡 <a href='https://www.paypal.com/paypalme/dmpop'>coffee</a>";
 ?>
