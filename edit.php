@@ -13,6 +13,7 @@ error_reporting(E_ERROR);
     <title><?php echo $title ?></title>
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" href="css/classless.css">
+    <link rel="stylesheet" href="css/themes.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         textarea {

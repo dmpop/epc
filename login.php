@@ -28,6 +28,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="favicon.png" />
         <link rel="stylesheet" href="css/classless.css">
+        <link rel="stylesheet" href="css/themes.css">
         <title><?php echo $title ?></title>
     </head>
 </head>
@@ -40,7 +41,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
             <form action="" method="POST">
                 <p>Password:</p>
                 <input type="password" name="password">
-                <button type="submit" name="submit">Submit</button>
+                <button type="submit" name="submit">Log in</button>
             </form>
         </div>
     </div>

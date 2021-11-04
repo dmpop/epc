@@ -3,6 +3,7 @@ Everyday Photo Carry (EPC) is a supremely simple application written in PHP to k
 ## Dependencies
 
 - PHP 7.x or higher
+- php-intl library
 - Apache or any other web server (optional)
 
 # Installation and usage

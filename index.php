@@ -15,6 +15,7 @@ if ($protect) {
 	<title><?php echo $title ?></title>
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="css/classless.css">
+	<link rel="stylesheet" href="css/themes.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -44,6 +45,7 @@ if ($protect) {
 						$value2 = $data[2];
 						$value3 = $data[3];
 						$sum += floatval($value3);
+						$fmt = numfmt_create( $locale, NumberFormatter::CURRENCY );
 						$value4 = $data[4];
 						if ($row == 1) {
 							echo '<th>' . $value1 . '</th>';
@@ -53,7 +55,7 @@ if ($protect) {
 						} else {
 							echo '<td></a> <a href="view.php?item=' . $row . '">' . $value1 . '</a></td>';
 							echo '<td style="letter-spacing: 2px; text-align: left; color: #c46c6cff;">' . $value2 . '</td>';
-							echo '<td style="text-align: right;">' . number_format(floatval($value3), 2) . '</td>';
+							echo '<td style="text-align: right;">' . numfmt_format_currency($fmt, $value3, $currency) . '</td>';
 							echo '<td style="text-align: right;">' . $value4 . '</td>';
 						}
 						if ($row == 1) {
@@ -69,7 +71,7 @@ if ($protect) {
 				</tbody>
 			</table>
 			<?php
-			echo "<p style='text-align: center;'> Total: <strong>" . number_format(floatval($sum), 2) . "</strong></p>";
+			echo "<p style='text-align: center;'> Total: <strong>" . numfmt_format_currency($fmt, $sum, $currency) . "</strong></p>";
 			?>
 		</div>
 		<button style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button onclick='window.location.href = "upload.php"'>Upload</button>
