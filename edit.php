@@ -3,7 +3,7 @@ require_once('protect.php');
 error_reporting(E_ERROR);
 ?>
 
-<html lang="en" data-theme="<?php echo $theme ?>">
+<html lang="en">
 <!-- Author: Dmitri Popov, dmpop@linux.com
          License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
@@ -12,8 +12,10 @@ error_reporting(E_ERROR);
 
     <title><?php echo $title ?></title>
     <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/classless.css">
-    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <script src="js/popup.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         textarea {
@@ -28,18 +30,18 @@ error_reporting(E_ERROR);
 <body>
     <div style="text-align: center;">
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
-        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
+        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px;"><?php echo $title ?></h1>
         <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
         <?php
         function Read()
         {
-            $CSVFILE = "data.csv";
-            echo file_get_contents($CSVFILE);
+            $csvfile = "data.csv";
+            echo file_get_contents($csvfile);
         }
         function Write()
         {
-            $CSVFILE = "data.csv";
-            $fp = fopen($CSVFILE, "w");
+            $csvfile = "data.csv";
+            $fp = fopen($csvfile, "w");
             $data = $_POST["text"];
             fwrite($fp, $data);
             fclose($fp);
@@ -48,6 +50,9 @@ error_reporting(E_ERROR);
         <?php
         if (isset($_POST["save"])) {
             Write();
+            echo "<script>";
+            echo 'popup("Changes have been saved");';
+            echo "</script>";
         };
         ?>
         <div class="card">
@@ -57,13 +62,6 @@ error_reporting(E_ERROR);
                 <button style="margin-top: 2em;" type="submit" name="save">Save</button>
             </form>
         </div>
-        <?php
-        if (isset($_POST["save"])) {
-            echo '<script language="javascript">';
-            echo 'alert("Changes have been saved.")';
-            echo '</script>';
-        };
-        ?>
         <p style="font-size: 85%"><?php echo $footer ?></p>
     </div>
 </body>

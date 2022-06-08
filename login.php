@@ -1,24 +1,19 @@
 <?php
-include('config.php');
+$config = include('config.php');
+$pw_hash = password_hash($password, PASSWORD_DEFAULT);
 
-/* Redirects here after login */
-$redirect_after_login = 'index.php';
+if ($protect) {
+    session_start();
+}
 
-/* Set timezone to UTC */
-
-date_default_timezone_set('UTC');
-
-/* Will not ask password again for */
-$remember_password = strtotime('+30 days'); // 30 days
-
-if (isset($_POST['password']) && $_POST['password'] == $password) {
-    setcookie("password", $password, $remember_password);
-    header('Location: ' . $redirect_after_login);
+if (isset($_POST['password']) && password_verify($_POST['password'], $pw_hash)) {
+    $_SESSION["password"] = $pw_hash;
+    header('Location: index.php');
     exit;
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="<?php echo $theme ?>">
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -27,8 +22,8 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="favicon.png" />
-        <link rel="stylesheet" href="css/classless.css">
-        <link rel="stylesheet" href="css/themes.css">
+        <link rel="stylesheet" href="css/milligram.min.css">
+        <link rel="stylesheet" href="css/styles.css">
         <title><?php echo $title ?></title>
     </head>
 </head>
@@ -36,11 +31,11 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 <body>
     <div style="text-align: center;">
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
-        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px; color: #cc6600;"><?php echo $title ?></h1>
+        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px;"><?php echo $title ?></h1>
         <div class="card">
             <form action="" method="POST">
-                <p>Password:</p>
-                <input type="password" name="password">
+            <label>Password:</label>
+                <input style="width: 15em;" type="password" name="password"><br />
                 <button type="submit" name="submit">Log in</button>
             </form>
         </div>
