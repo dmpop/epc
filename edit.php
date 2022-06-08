@@ -1,6 +1,9 @@
 <?php
-require_once('protect.php');
 error_reporting(E_ERROR);
+include('config.php');
+if ($protect) {
+	require_once('protect.php');
+}
 ?>
 
 <html lang="en">
@@ -32,7 +35,7 @@ error_reporting(E_ERROR);
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
         <h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
         <hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
-        <button style="margin-bottom: 1.5em;" onclick='window.location.href = "index.php"'>Back</button>
+        <button class="button button-outline" style="margin-bottom: 1.5em;" onclick='window.location.href = "index.php"'>Back</button>
         <?php
         function Read()
         {
