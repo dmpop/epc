@@ -23,7 +23,7 @@ if ($protect) {
 	<div style="text-align: center;">
 		<img style="height: 3em;" src="favicon.svg" alt="logo" />
 		<h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
-		<table>
+		<table id="theTable">
 			<?php
 			if (!extension_loaded('intl')) {
 				die("<div>⚠️ The PHP intl extension is missing</div>");
@@ -53,10 +53,10 @@ if ($protect) {
 					$fmt = numfmt_create($locale, NumberFormatter::CURRENCY);
 					$value4 = $data[4];
 					if ($row == 1) {
-						echo '<th>' . $value1 . '</th>';
+						echo '<th class="sortable" onclick="sortTable(0)">' . $value1 . '</th>';
 						echo '<th>' . $value2 . '</th>';
 						echo '<th style="text-align: right;">' . $value3 . '</th>';
-						echo '<th style="text-align: right;">' . $value4 . '</th>';
+						echo '<th style="text-align: right;" class="sortable" onclick="sortTable(1)">' . $value4 . '</th>';
 					} else {
 						echo '<td></a> <a href="view.php?item=' . $row . '">' . $value1 . '</a></td>';
 						echo '<td style="letter-spacing: 2px; text-align: left; color: #c46c6cff;">' . $value2 . '</td>';
@@ -75,13 +75,51 @@ if ($protect) {
 			?>
 			</tbody>
 		</table>
+		<script>
+			function sortTable(n) {
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("theTable");
+				switching = true;
+				dir = "asc";
+				while (switching) {
+					switching = false;
+					rows = table.rows;
+					for (i = 1; i < (rows.length - 1); i++) {
+						shouldSwitch = false;
+						x = rows[i].getElementsByTagName("TD")[n];
+						y = rows[i + 1].getElementsByTagName("TD")[n];
+						if (dir == "asc") {
+							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
+						} else if (dir == "desc") {
+							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
+						}
+					}
+					if (shouldSwitch) {
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+						switching = true;
+						switchcount++;
+					} else {
+						if (switchcount == 0 && dir == "asc") {
+							dir = "desc";
+							switching = true;
+						}
+					}
+				}
+			}
+		</script>
 		<?php
 		echo "<p style='text-align: center;'> Total: <strong>" . numfmt_format_currency($fmt, $sum, $currency) . "</strong></p>";
 		?>
 		<div style="margin-top: 1.5em;">
-		<button class="button" style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button class="button button-outline" onclick='window.location.href = "upload.php"'>Upload</button>
-		<div style="text-align: center; margin-top: 1.5em;"><?php echo $footer ?></div>
-	</div>
+			<button class="button" style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button class="button button-outline" onclick='window.location.href = "upload.php"'>Upload</button>
+			<div style="text-align: center; margin-top: 1.5em;"><?php echo $footer ?></div>
+		</div>
 </body>
 
 </html>
