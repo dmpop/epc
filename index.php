@@ -23,6 +23,7 @@ if ($protect) {
 	<div style="text-align: center;">
 		<img style="height: 3em;" src="favicon.svg" alt="logo" />
 		<h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
+		<hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
 		<table id="theTable">
 			<?php
 			if (!extension_loaded('intl')) {
@@ -35,6 +36,13 @@ if ($protect) {
 			if (!is_file($csvfile)) {
 				$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes;\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here;";
 				file_put_contents($csvfile, $HEADER);
+			}
+			// Delete images if their filenames are not found in the data.csv file
+			$filelist = glob('img/*.*');
+			foreach ($filelist as $filename) {
+				if (stristr(file_get_contents($csvfile), basename($filename)) === FALSE) {
+					unlink($filename);
+				}
 			}
 			$sum = 0;
 			$row = 1;
@@ -118,7 +126,8 @@ if ($protect) {
 		?>
 		<div style="margin-top: 1.5em;">
 			<button class="button" style="display: inline;" onclick='window.location.href = "edit.php"'>Edit</button> <button class="button button-outline" onclick='window.location.href = "upload.php"'>Upload</button>
-			<div style="text-align: center; margin-top: 1.5em;"><?php echo $footer ?></div>
+			<hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
+			<div><?php echo $footer ?></div>
 		</div>
 </body>
 

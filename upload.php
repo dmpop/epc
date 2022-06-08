@@ -23,8 +23,9 @@ if ($protect) {
 <body>
 	<div style="text-align: center;">
 		<img style="height: 3em;" src="favicon.svg" alt="logo" />
-		<h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px;"><?php echo $title ?></h1>
-		<button style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button> <button style="margin-bottom: 2em;" onclick='window.location.href = "edit.php"'>Edit</button>
+		<h1 style="letter-spacing: 3px;"><?php echo $title ?></h1>
+		<hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
+		<button class="button button-outline" style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
 		<?php
 		$upload_dir = "img/";
 		if (isset($_POST['submit'])) {
@@ -50,7 +51,8 @@ if ($protect) {
 				<button role="button" name="submit">Upload</button>
 			</form>
 		</div>
-		<p style="font-size: 85%"><?php echo $footer ?></p>
+		<hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
+		<div><?php echo $footer ?></div>
 	</div>
 </body>
 

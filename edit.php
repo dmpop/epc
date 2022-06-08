@@ -30,8 +30,9 @@ error_reporting(E_ERROR);
 <body>
     <div style="text-align: center;">
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
-        <h1 style="margin-top: 0em; margin-bottom: 1em; letter-spacing: 3px;"><?php echo $title ?></h1>
-        <button style="margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button>
+        <h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
+        <hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
+        <button style="margin-bottom: 1.5em;" onclick='window.location.href = "index.php"'>Back</button>
         <?php
         function Read()
         {
@@ -57,12 +58,13 @@ error_reporting(E_ERROR);
         ?>
         <div class="card">
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-                <textarea style="margin-top: 2em;" name="text"><?php Read(); ?></textarea>
+                <textarea style="margin-top: 1em;" name="text"><?php Read(); ?></textarea>
                 <br />
-                <button style="margin-top: 2em;" type="submit" name="save">Save</button>
+                <button style="margin-top: 1em;" type="submit" name="save">Save</button>
             </form>
         </div>
-        <p style="font-size: 85%"><?php echo $footer ?></p>
+        <hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
+        <div><?php echo $footer ?></div>
     </div>
 </body>
 
