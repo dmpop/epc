@@ -5,9 +5,10 @@ if ($protect) {
 }
 ?>
 
-<html lang="en" data-theme="<?php echo $theme ?>">
+<html lang="en">
 <!-- Author: Dmitri Popov, dmpop@linux.com
-         License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
+https://github.com/dmpop/epc
+License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
 <head>
 	<meta charset="utf-8">

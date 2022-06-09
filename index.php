@@ -7,7 +7,8 @@ if ($protect) {
 
 <html lang="en">
 <!-- Author: Dmitri Popov, dmpop@linux.com
-         License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
+https://github.com/dmpop/epc
+License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -34,7 +35,7 @@ if ($protect) {
 			}
 			$csvfile = "data.csv";
 			if (!is_file($csvfile)) {
-				$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes;\nandi.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here;";
+				$HEADER = "Photo; Item; Serial no.; Price(€); Type; Notes;\nphoto.jpeg; Cameral Model; XXXXXX-XXXX; 1000; Camera; Note goes here;";
 				file_put_contents($csvfile, $HEADER);
 			}
 			// Delete images if their filenames are not found in the data.csv file

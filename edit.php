@@ -8,7 +8,8 @@ if ($protect) {
 
 <html lang="en">
 <!-- Author: Dmitri Popov, dmpop@linux.com
-         License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
+https://github.com/dmpop/epc
+License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
