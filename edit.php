@@ -2,7 +2,7 @@
 error_reporting(E_ERROR);
 include('config.php');
 if ($protect) {
-	require_once('protect.php');
+    require_once('protect.php');
 }
 ?>
 
@@ -36,20 +36,18 @@ License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
         <h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
         <hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
-        <button class="button button-outline" style="margin-bottom: 1.5em;" onclick='window.location.href = "index.php"'>Back</button>
+        <button class="button button-outline" style="margin-bottom: 1.5em;" onclick='window.location.href = "index.php?bag=<?php echo file_get_contents(".bag"); ?>"'>Back</button>
         <?php
         function Read()
         {
-            $csvfile = "data.csv";
+            $csvfile = "bags/" . file_get_contents('.bag') . ".csv";
             echo file_get_contents($csvfile);
         }
         function Write()
         {
-            $csvfile = "data.csv";
-            $fp = fopen($csvfile, "w");
+            $csvfile = "bags/" . file_get_contents('.bag') . ".csv";
             $data = $_POST["text"];
-            fwrite($fp, $data);
-            fclose($fp);
+            file_put_contents($csvfile, $data);
         }
         ?>
         <?php

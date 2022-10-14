@@ -25,11 +25,11 @@ License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
         <img style="height: 3em;" src="favicon.svg" alt="logo" />
         <h1 style="margin-top: 0em; letter-spacing: 3px;"><?php echo $title ?></h1>
         <hr style="margin-top: 1.5em; margin-bottom: 1.5em;">
-        <button class="button button-outline" style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php"'>Back</button> <button style="margin-bottom: 2em;" onclick='window.location.href = "edit.php"'>Edit</button>
+        <button class="button button-outline" style="display: inline; margin-bottom: 2em;" onclick='window.location.href = "index.php?bag=<?php echo file_get_contents(".bag"); ?>"'>Back</button> <button style="margin-bottom: 2em;" onclick='window.location.href = "edit.php"'>Edit</button>
     </div>
     <div style="margin: 0 auto; max-width: 800px;">
         <?php
-        $csvfile = "data.csv";
+        $csvfile = $_GET["bag"];
         $handle = fopen($csvfile, "r");
         $row = (int) $_GET["item"];
         for ($i = 1; $data = fgetcsv($handle, 1000, ";"); $i++) {
